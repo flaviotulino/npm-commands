@@ -1,0 +1,15 @@
+{
+  "name": "npm-commands",
+  "version": "1.0.0",
+  "main": "npm-commands.js",
+  "scripts": {
+    "test": "echo 'This will be echoing this string.'"
+  },
+  "keywords": ["npm", "commands", "programmatically"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "description": "Run npm commands programmatically"
+}
