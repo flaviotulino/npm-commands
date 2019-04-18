@@ -1,12 +1,12 @@
 {
   "name": "npm-commands",
   "version": "1.0.0",
-  "main": "npm-commands.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo 'This will be echoing this string.'"
   },
   "keywords": ["npm", "commands", "programmatically"],
-  "author": "",
+  "author": "Flavio Tulino",
   "license": "ISC",
   "dependencies": {
   },
