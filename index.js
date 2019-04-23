@@ -9,7 +9,7 @@ class npm {
   }
 
   cwd(dir) {
-    this.optinos.cwd = dir;
+    this.options.cwd = dir;
     return this;
   }
 
