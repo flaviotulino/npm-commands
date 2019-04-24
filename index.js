@@ -48,7 +48,7 @@ class npm {
    */
   install(module = null) {
     try {
-      return execSync(`npm install ${module}`, this.options);
+      return execSync(`npm install ${module}`, this.options).toString();
     } catch (e) {
       return null;
     }
@@ -71,7 +71,7 @@ class npm {
 
   link(module = null) {
     try {
-      return execSync(`npm link ${module}`, this.options);
+      return execSync(`npm link ${module}`, this.options).toString();
     } catch (e) {
       return null;
     }
@@ -95,7 +95,7 @@ class npm {
   run(script) {
     const args = this.args ? `-- ${this.args.join(' ')}` : '';
     try {
-      return execSync(`npm run ${script} ${args}`, this.options);
+      return execSync(`npm run ${script} ${args}`, this.options).toString();
     } catch (e) {
       return null;
     }
