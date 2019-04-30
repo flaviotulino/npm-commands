@@ -92,6 +92,29 @@ class npm {
     });
   }
 
+  unlink(module = '') {
+    try {
+      return execSync(`npm unlink ${module}`, this.options).toString();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  unlinkAsync(module = '') {
+    return new Promise((resolve, reject) => {
+      try {
+        exec(`npm unlink ${module}`, this.options, (error, output) => {
+          if (error) {
+            throw error;
+          }
+          return resolve(output);
+        })
+      } catch (e) {
+        reject(null);
+      }
+    });
+  }
+
   run(script) {
     const args = this.args ? `-- ${this.args.join(' ')}` : '';
     try {
