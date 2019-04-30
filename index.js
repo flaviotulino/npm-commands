@@ -46,7 +46,7 @@ class npm {
   /**
    * @executes a npm install, of only one dependency if specified
    */
-  install(module = null) {
+  install(module = '') {
     try {
       return execSync(`npm install ${module}`, this.options).toString();
     } catch (e) {
@@ -54,7 +54,7 @@ class npm {
     }
   }
 
-  installAsync(module = null) {
+  installAsync(module = '') {
     return new Promise((resolve, reject) => {
       try {
         exec(`npm install ${module}`, this.options, (error, output) => {
@@ -69,7 +69,7 @@ class npm {
     });
   }
 
-  link(module = null) {
+  link(module = '') {
     try {
       return execSync(`npm link ${module}`, this.options).toString();
     } catch (e) {
@@ -77,7 +77,7 @@ class npm {
     }
   }
 
-  linkAsync(module = null) {
+  linkAsync(module = '') {
     return new Promise((resolve, reject) => {
       try {
         exec(`npm link ${module}`, this.options, (error, output) => {
