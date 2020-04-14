@@ -14,7 +14,7 @@ class npm {
   }
 
   output(value = true) {
-    this.options.stdio = value ? 'inherit' : 'ignore';
+    this.options.stdio = value ? 'inherit': 'ignore';
     return this;
   }
 
@@ -46,18 +46,33 @@ class npm {
   /**
    * @executes a npm install, of only one dependency if specified
    */
-  install(module = '') {
+  install(module = '', { save, saveDev } = {}) {
+    let saveMode = '';
+    if (save) {
+      saveMode = '--save'
+    } else if(saveDev) {
+      saveMode = '--save-dev'
+    }
+
     try {
-      return execSync(`npm install ${module}`, this.options).toString();
+      return execSync(`npm install ${module} ${saveMode}`, this.options).toString();
     } catch (e) {
       return null;
+      
     }
   }
 
-  installAsync(module = '') {
+  installAsync(module = '', { save, saveDev } = {}) {
+    let saveMode = '';
+    if (save) {
+      saveMode = '--save'
+    } else if(saveDev) {
+      saveMode = '--save-dev'
+    }
+
     return new Promise((resolve, reject) => {
       try {
-        exec(`npm install ${module}`, this.options, (error, output) => {
+        exec(`npm install ${module} ${saveMode}`, this.options, (error, output) => {
           if (error) {
             throw error;
           }

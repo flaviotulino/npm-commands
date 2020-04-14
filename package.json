@@ -5,11 +5,14 @@
   "scripts": {
     "test": "echo 'This will be echoing this string.'"
   },
-  "keywords": ["npm", "commands", "programmatically"],
+  "keywords": [
+    "npm",
+    "commands",
+    "programmatically"
+  ],
   "author": "Flavio Tulino",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {},
   "description": "Run npm commands programmatically"
 }
