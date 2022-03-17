@@ -54,12 +54,13 @@ class npm {
       saveMode = '--save-dev'
     }
 
-    try {
-      return execSync(`npm install ${module} ${saveMode}`, this.options).toString();
-    } catch (e) {
-      return null;
-      
-    }
+    return new Promise((resolve, reject) => {
+      try {
+        resolve(execSync(`npm install ${module} ${saveMode}`, this.options));
+      } catch (e) {
+        reject(e)
+      }
+    });
   }
 
   installAsync(module = '', { save, saveDev } = {}) {
@@ -132,11 +133,13 @@ class npm {
 
   run(script) {
     const args = this.args ? `-- ${this.args.join(' ')}` : '';
-    try {
-      return execSync(`npm run ${script} ${args}`, this.options).toString();
-    } catch (e) {
-      return null;
-    }
+    return new Promise((resolve, reject) => {
+      try {
+        resolve(execSync(`npm run ${script} ${args}`, this.options));
+      } catch (e) {
+        reject(e)
+      }
+    });
   }
 
   runAsync(script) {
